@@ -1,6 +1,6 @@
 %define name	hexamine
 %define version	0.2.1
-%define rel	1
+%define rel	2
 %define release	%mkrel %rel
 
 Summary:	Hexagonal Minesweeper
