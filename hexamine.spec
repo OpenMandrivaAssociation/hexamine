@@ -14,6 +14,7 @@ License:	GPL
 URL:		http://sourceforge.net/projects/%{name}
 BuildRequires:  imagemagick
 BuildArch:	noarch
+BuildRoot:	%_tmppath/%{name}-build
 
 %description
 A puzzle game, based on Minesweeper idea.
