@@ -52,16 +52,6 @@ install -d -m 755 %{buildroot}/%{_liconsdir}
 install -m 644 %{name}-48.png %{buildroot}/%{_liconsdir}/%{name}.png
 
 #old debian-type menu
-install -d -m 755 %{buildroot}%{_menudir}
-cat > %{buildroot}%{_menudir}/%{name} << EOF
-?package(%name): needs="x11" \
-	section="More Applications/Games/Puzzles" \
-	title="Hexamine" \
-	longtitle="%{summary}" \
-	command="%{_gamesbindir}/%{name}.py" \
-	icon="%{name}.png" \
-	xdg="true"
-EOF
 
 #xdg menu
 install -d -m 755 %{buildroot}%{_datadir}/applications
@@ -91,7 +81,6 @@ EOF
 %{_miconsdir}/%{name}.png
 %{_iconsdir}/%{name}.png
 %{_liconsdir}/%{name}.png
-%{_menudir}/%{name}
 %{_datadir}/applications/mandriva-%{name}.desktop
 
 %clean
