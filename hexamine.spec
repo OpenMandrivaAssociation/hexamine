@@ -1,20 +1,20 @@
-%define name	hexamine
-%define version	0.2.1
-%define rel	2
-%define release	%mkrel %rel
+Name:			hexamine
+Version:		0.2.1
+Release:		%mkrel 3
 
 Summary:	Hexagonal Minesweeper
-Name:		%{name}
-Version:	%{version}
-Release:	%{release}
-Requires:	pygame
-Source:		http://prdownloads.sourceforge.net/%{name}/%{name}-%{version}.tar.bz2
+License:	GPLv2
 Group:		Games/Puzzles
-License:	GPL
-URL:		http://sourceforge.net/projects/%{name}
-BuildRequires:  imagemagick
+URL:		http://sourceforge.net/projects/hexamine
+Source0:	http://prdownloads.sourceforge.net/hexamine/%{name}-%{version}.tar.bz2
+Source1:	%{name}.6
+
 BuildArch:	noarch
-BuildRoot:	%_tmppath/%{name}-build
+BuildRequires:	imagemagick
+BuildRoot:	%{_tmppath}/%{name}-%{version}
+
+Requires:	pygame
+
 
 %description
 A puzzle game, based on Minesweeper idea.
@@ -37,7 +37,7 @@ convert -size 48x48 skins/basic/hextile_flag_4.png %{name}-48.png
 %install
 rm -rf %{buildroot}
 install -d -m 755 %{buildroot}%{_gamesbindir}
-install -m 755 %{name}.py %{buildroot}%{_gamesbindir}
+install -m 755 %{name}.py %{buildroot}%{_gamesbindir}/%{name}
 install -d -m 755 %{buildroot}%{_gamesdatadir}/%{name}/skins/basic/
 install -m 644 skins/basic/* %{buildroot}%{_gamesdatadir}/%{name}/skins/basic/
 install -d -m 755 %{buildroot}/%{_sysconfdir}
@@ -59,19 +59,21 @@ cat > %{buildroot}%{_datadir}/applications/mandriva-%{name}.desktop << EOF
 [Desktop Entry]
 Name=Hexamine
 Comment=%{summary}
-Exec=%{_gamesbindir}/%{name}.py
+Exec=%{_gamesbindir}/%{name}
 Icon=%{name}
 Terminal=false
 Type=Application
 Categories=Game;LogicGame;X-MandrivaLinux-MoreApplications-Games-Puzzles;
 EOF
 
+#man page
+install -d -m 755 %{buildroot}/%{_mandir}/man6
+install -m 644 %{_sourcedir}%{name}.6 %{buildroot}/%{_mandir}/man6
+
 %if %mdkversion < 200900
 %post
 %{update_menus}
-%endif
 
-%if %mdkversion < 200900
 %postun
 %{clean_menus}
 %endif
@@ -79,14 +81,14 @@ EOF
 %files
 %defattr(-,root,root)
 %doc ABOUT README
-%attr(0755,root,games) %{_gamesbindir}/%{name}.py
+%attr(0755,root,games) %{_gamesbindir}/%{name}
 %{_gamesdatadir}/%{name}
 %config(noreplace) %{_sysconfdir}/%{name}.conf
 %{_miconsdir}/%{name}.png
 %{_iconsdir}/%{name}.png
 %{_liconsdir}/%{name}.png
 %{_datadir}/applications/mandriva-%{name}.desktop
-
+%{_mandir}/man6/%{name}.6*
 %clean
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
