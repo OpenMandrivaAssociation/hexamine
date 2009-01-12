@@ -68,7 +68,7 @@ EOF
 
 #man page
 install -d -m 755 %{buildroot}/%{_mandir}/man6
-install -m 644 %{_sourcedir}%{name}.6 %{buildroot}/%{_mandir}/man6
+install -m 644 %{_sourcedir}/%{name}.6 %{buildroot}/%{_mandir}/man6
 
 %if %mdkversion < 200900
 %post
