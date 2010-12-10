@@ -1,6 +1,6 @@
 Name:			hexamine
 Version:		0.2.1
-Release:		%mkrel 4
+Release:		%mkrel 5
 
 Summary:	Hexagonal Minesweeper
 License:	GPLv2
