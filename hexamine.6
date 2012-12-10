@@ -1,0 +1,61 @@
+.TH hexamine 6 "12.01.2009" "" "Hexamine's Manual"
+
+.SH "NAME"
+Hexamine \- Hexagonal Minesweeper
+
+.SH "SYNOPSIS"
+.B hexamine
+.P
+There is no command line option.
+
+.SH "DESCRIPTION"
+Hexamine is a puzzle game. There is a field of hexagonal cells. Each cell can contain a mine of power 1-3 or be empty. The aim is to reveal all the empty cells on the field. Very much like famous Minesweeper.
+.P
+You can flag the cell with numbers 1-3 by right-clicking on it (repeat to increase the number), if you think there is a mine.
+.P
+You can open a cell by left-clicking on it. If there is a mine - you loose. Otherwise the cell opens, revealing two numbers in form "<ct>/<ft>", where :
+.TP
+<ct> - close threat
+
+sum of mine powers in cells, adjacent to cell in question (circle with radius 1 cell),
+.TP
+<ft> - far threat
+
+sum of mine powers minus one (for each mine: 1->0, 2->1, 3->2) in cells, which are on circle with radius 2 cells.
+.P
+Close and far threats are totally independent. Any mine can impose either far, close or no threat for any given cell, but not both !
+Close threat for cell is marked while mouse cursor is over it.
+When you open a cell with close threat 0, it automatically reveals all the adjacent cells.
+
+.P
+If you fail, by opening mined field, the game shows all the mines.
+If you win, by opening all empty cells, mined cells turn green.
+
+.SH "USAGE"
+Start playing with the mouse as soon as the game starts. Press Escape key to quit.
+
+.SH "FILES"
+Hexamine searches for configuration file in this order:
+.P
+.B ~/.hexamine 
+(in user home directory)
+.P
+.B /etc/hexamine.conf
+.P
+.B hexamine.conf 
+(in current directory)
+.P
+The configuration file consists of 
+.B [global] 
+section, where you define skin to use and profile
+and
+.BI [ <profile> ] 
+sections.
+.P
+You can add/remove/edit profiles to adjust game experience.
+
+.SH "AUTHORS"
+.P
+Alexey Maslennikov <grayswander@users.sf.net> wrote the game hexamine.
+.P
+Guillaume Bedot <littletux@mandriva.org> wrote the hexamine's manual page.

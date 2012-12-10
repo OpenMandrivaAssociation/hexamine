@@ -92,3 +92,40 @@ install -m 644 %{_sourcedir}/%{name}.6 %{buildroot}/%{_mandir}/man6
 %clean
 rm -rf %{buildroot}
 
+
+
+%changelog
+* Fri Dec 10 2010 Oden Eriksson <oeriksson@mandriva.com> 0.2.1-5mdv2011.0
++ Revision: 619360
+- the mass rebuild of 2010.0 packages
+
+* Fri Sep 11 2009 Thierry Vignaud <tv@mandriva.org> 0.2.1-4mdv2010.0
++ Revision: 437865
+- rebuild
+
+* Mon Jan 12 2009 Guillaume Bedot <littletux@mandriva.org> 0.2.1-3mdv2009.1
++ Revision: 328696
+- Added man page
+- Fixed license
+
+* Thu Jun 12 2008 Pixel <pixel@mandriva.com> 0.2.1-2mdv2009.0
++ Revision: 218437
+- rpm filetriggers deprecates update_menus/update_scrollkeeper/update_mime_database/update_icon_cache/update_desktop_database/post_install_gconf_schemas
+
+* Fri Jan 11 2008 Thierry Vignaud <tv@mandriva.org> 0.2.1-2mdv2008.1
++ Revision: 148215
+- drop old menu
+- kill re-definition of %%buildroot on Pixel's request
+- kill desktop-file-validate's 'warning: key "Encoding" in group "Desktop Entry" is deprecated'
+
+  + Olivier Blin <oblin@mandriva.com>
+    - restore BuildRoot
+
+* Fri Aug 10 2007 Guillaume Bedot <littletux@mandriva.org> 0.2.1-2mdv2008.0
++ Revision: 61507
+- builreq imagemagick
+
+
+* Fri Jul 07 2006 Guillaume Bedot <littletux@mandriva.org> 0.2.1-1mdv2007.0
+- First Mandriva package for hexamine
+
