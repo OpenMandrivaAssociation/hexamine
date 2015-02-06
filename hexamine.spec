@@ -1,7 +1,7 @@
 Summary:	Hexagonal Minesweeper
 Name:		hexamine
 Version:	0.2.1
-Release:	6
+Release:	7
 License:	GPLv2+
 Group:		Games/Puzzles
 Url:		http://sourceforge.net/projects/hexamine
