@@ -4,7 +4,7 @@ Version:	0.2.1
 Release:	7
 License:	GPLv2+
 Group:		Games/Puzzles
-Url:		http://sourceforge.net/projects/hexamine
+Url:		https://sourceforge.net/projects/hexamine
 Source0:	http://prdownloads.sourceforge.net/hexamine/%{name}-%{version}.tar.bz2
 Source1:	%{name}.6
 BuildRequires:	imagemagick
